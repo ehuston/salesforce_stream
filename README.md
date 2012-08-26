@@ -19,43 +19,25 @@ Setup a new Remote Access to get your OAuth tokens. If you are unfamiliar with s
 
 ### Create a PushTopic in Salesforce.com
 
-Create a new push topic from developer console or workbench:
+Create a new push topic from the Developer Console in your org with the follow
 
 PushTopic pt = new PushTopic();
 pt.apiversion = 24.0;
 pt.name = 'AllAccounts';
-pt.description = 'All new and updated account records';
+pt.description = 'All new account records';
 pt.query = 'SELECT Id, Name FROM Account';
 insert pt;
 System.debug('Created new PushTopic: '+ pt.Id);
 
+You can also set up PushTopics using the [Workbench](https://workbench.developerforce.com).
+
 ### Running the Application Locally
 
 From the command line type in:
-<pre>  git clone https://github.com/jeffdonthemic/node-streaming-socketio.git
+<pre>git clone https://github.com/jeffdonthemic/node-streaming-socketio.git
 cd node-streaming-socketio
 npm install
 node app.js
 </pre>
 
 Point your browser to: [http://localhost:3001](http://localhost:3001)
-
-
-run npm intall
-
-Setup Remote Access
-===================
-Use callback: https://localhost:3001/oauth/_callback
-
-Create a new push topic from developer console or workbench:
-===================
-
-PushTopic pt = new PushTopic();
-pt.apiversion = 24.0;
-pt.name = 'AllAccounts';
-pt.description = 'All new and updated account records';
-pt.query = 'SELECT Id, Name FROM Account';
-insert pt;
-System.debug('Created new PushTopic: '+ pt.Id);
-
-This becomes your PUSH_TOPIC in config.js: '/topic/AllAccounts'
