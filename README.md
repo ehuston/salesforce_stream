@@ -21,12 +21,12 @@ Setup a new Remote Access to get your OAuth tokens. If you are unfamiliar with s
 
 Create a new push topic from the Developer Console in your org with the follow
 
-PushTopic pt = new PushTopic();
-pt.apiversion = 24.0;
+PushTopic pt = new PushTopic();  
+pt.apiversion = 24.0;  
 pt.name = 'AllAccounts';
-pt.description = 'All new account records';
+pt.description = 'All new account records';  
 pt.query = 'SELECT Id, Name FROM Account';
-insert pt;
+insert pt;  
 System.debug('Created new PushTopic: '+ pt.Id);
 
 You can also set up PushTopics using the [Workbench](https://workbench.developerforce.com).
