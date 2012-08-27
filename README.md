@@ -1,11 +1,11 @@
 node-streaming-socketio
 =======================
 
-Node.js demo that streams newly createed Account records in Salesforce.com to the browser using socket.io.
+Node demo that streams newly created Account records in Salesforce.com to the browser using socket.io.
 
 ### Node Module Dependencies
 
-These will be automatically installed when you use any of the above *npm* installation methods above.
+These will be automatically installed when you use the *npm* installation method below.
 
 1. [express](http://expressjs.com/) - framework
 2. [nforce](https://github.com/kevinohara80/nforce) - REST wrapper for force.com
