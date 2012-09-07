@@ -13,7 +13,7 @@ These will be automatically installed when you use the *npm* installation method
 1. [express](http://expressjs.com/) - framework
 2. [nforce](https://github.com/kevinohara80/nforce) - REST wrapper for force.com
 3. [jade](http://jade-lang.com/) - the view engine
-4. [faye](hhttp://faye.jcoglan.com/) - a publish-subscribe messaging system based on the Bayeux protocol.
+4. [faye](http://faye.jcoglan.com/) - a publish-subscribe messaging system based on the Bayeux protocol.
 5. [socket.io](http://jade-lang.com/) - WebSocket protocol for simplify bi-directional communication over HTTP
 
 ### Setup Remote Access in Salesforce.com
