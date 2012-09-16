@@ -45,4 +45,6 @@ This will clone this repo locally so you simply have to make your config changes
 npm install # install all of the packages from the package.json file
 node app.js # start the server</pre>
 
+Update line 9 in views/layout.jade to point to the correct URL.
+
 Point your browser to: [http://localhost:3001](http://localhost:3001)
