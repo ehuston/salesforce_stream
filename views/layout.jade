@@ -22,7 +22,7 @@ html
                 d = new Date(time.getTime());
                 modifyTime = d.toLocaleTimeString();
 
-                jQuery('.slides').append('<section><h2>'+object.Name+'</h2><br>Account '+event.type[0].toUpperCase() + event.type.substring(1)+'<br><small>'+modifyTime+'</small><br><br>Created: '+object.CreatedDate.split("T")[0]+'<br><br><small>Modified By '+object.LastModifiedById+'</small></section>');
+                jQuery('.slides').append('<section><h2>'+object.Name+'</h2><br>Account '+event.type[0].toUpperCase() + event.type.substring(1)+'<br><small>'+modifyTime+'</small><br><br>Created: '+object.CreatedDate.split("T")[0]+'<br><br><small>By '+object.LastModifiedById+'</small></section>');
 
                 Reveal.navigateNext();
             });
@@ -36,7 +36,7 @@ html
                 d = new Date(time.getTime());
                 modifyTime = d.toLocaleTimeString();
 
-                jQuery('.slides').append('<section><h2>'+object.Name+'</h2><br>Contact '+event.type[0].toUpperCase() + event.type.substring(1)+'<br><small>'+modifyTime+'</small><br><br>'+object.Title+'<br>'+object.Email+'<br>'+object.Phone+'<br>Created: '+object.CreatedDate.split("T")[0]+'<br><br><small>Modified By '+object.LastModifiedById+'</small></section>');
+                jQuery('.slides').append('<section><h2>'+object.Name+'</h2><br>Contact '+event.type[0].toUpperCase() + event.type.substring(1)+'<br><small>'+modifyTime+'</small><br><br>'+object.Title+'<br>'+object.Email+'<br>'+object.Phone+'<br>Created: '+object.CreatedDate.split("T")[0]+'<br><br><small>By '+object.LastModifiedById+'</small></section>');
 
                 Reveal.navigateNext();
             });
