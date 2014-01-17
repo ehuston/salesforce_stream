@@ -90,7 +90,7 @@ getOAuthToken(function(oauth) {
     client.setHeader('Authorization', 'OAuth ' + oauth.access_token);
 
     // monitor connection down and reset the header
-    client.bind('transport:down', function(client) {
+    client.bind('transport:down', function(upstreamClient) {
         // get an OAuth token again
         getOAuthToken(function(oauth) {
             // set header again
