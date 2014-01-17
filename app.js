@@ -65,8 +65,9 @@ function getOAuthToken(callback) {
         if (err) {
             console.log('Error authenticating to org: ' + err.message);
         } else {
-            if (config.DEBUG)
+            if (config.DEBUG) {
                 console.log('OAauth dance response: ' + util.inspect(resp));
+            }
             callback(resp);
         }
     });
