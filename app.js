@@ -90,26 +90,41 @@ getOAuthToken(function(oauth) {
     client.setHeader('Authorization', 'OAuth ' + oauth.access_token);
 
     // monitor connection down and reset the header
-    client.bind('transport:down', function(upstreamClient) {
+    client.bind('transport:down', function(clientvar) {
         // get an OAuth token again
         getOAuthToken(function(oauth) {
             // set header again
-            upstreamClient.setHeader('Authorization', 'OAuth ' + oauth.access_token);
+            //var client = new faye.Client(salesforce_endpoint);
+            client.setHeader('Authorization', 'OAuth ' + oauth.access_token);
         });
     });
 
     // subscribe to salesforce.com push topic
     if (config.DEBUG) {
-        console.log('Subscribing to ' + config.PUSH_TOPIC);
+        console.log('Subscribing to ' + config.PUSH_TOPIC1);
     }
-    var upstreamSub = client.subscribe(config.PUSH_TOPIC, function(message) {
+    var upstreamSub1 = client.subscribe(config.PUSH_TOPIC1, function(message) {
         // new inserted/updated record receeived -- do something with it
         if (config.DEBUG) {
             console.log("Received message: " + JSON.stringify(message));
         }
-        socket.emit('record-processed', JSON.stringify(message));
+        socket.emit('account-processed', JSON.stringify(message));
         /**
-         * NOW WE HAVE A RECORD FROM SALESFORCE.COM! PROCESS IT ANYWAY YOU'D LIKE!!
+         * TODO: before emiting, get modifier name
+         **/
+    });
+    
+    if (config.DEBUG) {
+        console.log('Subscribing to ' + config.PUSH_TOPIC2);
+    }
+    var upstreamSub2 = client.subscribe(config.PUSH_TOPIC2, function(message) {
+        // new inserted/updated record receeived -- do something with it
+        if (config.DEBUG) {
+            console.log("Received message: " + JSON.stringify(message));
+        }
+        socket.emit('contact-processed', JSON.stringify(message));
+        /**
+         * TODO: before emiting, get modifier name
          **/
     });
 

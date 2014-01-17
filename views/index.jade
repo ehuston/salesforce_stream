@@ -1,2 +1,26 @@
-h1= title
-div#messages
+div.state-background
+div.reveal
+    div.slides
+        section SalesForce Live Feed
+    aside.controls
+        a.left(href="#") &#x25C4;
+        a.right(href="#") &#x25BA;
+        a.up(href="#") &#x25B2;
+        a.down(href="#") &#x25BC;
+    div.progress
+        span
+
+script(src='/reveal/lib/js/head.min.js')
+script(src='/reveal/js/reveal.min.js')
+script(type='text/javascript').
+    Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        mouseWheel: true,
+        rollingLinks: true,
+        overview: true,
+        keyboard: true,
+        theme: Reveal.getQueryHash().theme || 'default',
+        transition: Reveal.getQueryHash().transition || 'cube',
+    })

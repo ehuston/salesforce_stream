@@ -2,14 +2,42 @@ doctype html
 html
     head
         title= title
-        link(rel='stylesheet', href='/stylesheets/style.css')
+        link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic', type='text/css')
+        link(rel='stylesheet', href='/reveal/css/main.css')
+        link(rel='stylesheet', href='/reveal/css/theme/default.css', id='theme')  
+
         script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js')
         script(src='/socket.io/socket.io.js')
+
         script(type='text/javascript').
-            var socket = io.connect('http://shrouded-cliffs-2777.herokuapp.com')
-            socket.on('record-processed', function (data) {
+            $.noConflict();	
+            var socket = io.connect();
+
+            socket.on('account-processed', function (data) {
                 var results = JSON.parse(data);
-                console.log(results);
-                $('<div>Received Account: '+results['sobject']['Name']+'</div>').prependTo('#messages')
-            })
+                var event = results.event;
+                var object = results.sobject;
+                
+                var time = new Date(object.LastModifiedDate);
+                d = new Date( time.getTime() + ( time.getTimezoneOffset() * 60000 ) );
+                modifyTime = d.toLocaleTimeString();
+
+                jQuery('.slides').append('<section><h2>'+object.Name+'</h2><br>Account '+event.type[0].toUpperCase() + event.type.substring(1)+'<br><small>'+modifyTime+'</small><br><br>Created: '+object.CreatedDate.split("T")[0]+'<br><br><small>Modified By '+object.LastModifiedById+'</small></section>');
+
+                Reveal.navigateNext();
+            });
+
+            socket.on('contact-processed', function (data) {
+                var results = JSON.parse(data);
+                var event = results.event;
+                var object = results.sobject;
+
+                var time = new Date(object.LastModifiedDate);
+                d = new Date( time.getTime() + ( time.getTimezoneOffset() * 60000 ) );
+                modifyTime = d.toLocaleTimeString();
+
+                jQuery('.slides').append('<section><h2>'+object.Name+'</h2><br>Contact '+event.type[0].toUpperCase() + event.type.substring(1)+'<br><small>'+modifyTime+'</small><br><br>'+object.Title+'<br>'+object.Email+'<br>'+object.Phone+'<br>Created: '+object.CreatedDate.split("T")[0]+'<br><br><small>Modified By '+object.LastModifiedById+'</small></section>');
+
+                Reveal.navigateNext();
+            });
     body!= body
