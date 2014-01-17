@@ -1,15 +1,15 @@
-!!!
+doctype html
 html
-  head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js')
-    script(src='/socket.io/socket.io.js')
-    script(type='text/javascript')
-      var socket = io.connect('http://node-streaming-socketio.herokuapp.com')
-      socket.on('record-processed', function (data) {
-        var results = JSON.parse(data);
-        console.log(results);
-        $('<div>Received Account: '+results['sobject']['Name']+'</div>').prependTo('#messages')
-      })
-  body!= body
+    head
+        title= title
+        link(rel='stylesheet', href='/stylesheets/style.css')
+        script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js')
+        script(src='/socket.io/socket.io.js')
+        script(type='text/javascript').
+            var socket = io.connect('http://localhost:3001')
+            socket.on('record-processed', function (data) {
+                var results = JSON.parse(data);
+                console.log(results);
+                $('<div>Received Account: '+results['sobject']['Name']+'</div>').prependTo('#messages')
+            })
+    body!= body
