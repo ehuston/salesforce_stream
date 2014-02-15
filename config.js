@@ -6,7 +6,7 @@ exports.CALLBACK_URL = 'http://salesforce-streaming.herokuapp.com';
 exports.PUSH_TOPIC1 = '/topic/Accounts';
 exports.PUSH_TOPIC2 = '/topic/Contacts';
 
-exports.CLIENT_ID = '3MVG9GiqKapCZBwHQfSepaUSH8aIsJiGkPK4FYQ.tA0HIX7St82g2U0ovwfa_lAwPNVjDbD.0EwJnw0m10WRC';
-exports.CLIENT_SECRET = '7167716120398501039';
-exports.USERNAME = 'evan@sparefoot.com.develop';
-exports.PASSWORD = 't00ferapsx2uaCxpykiquXpsqCzozWXvC'; 
+exports.CLIENT_ID = '';
+exports.CLIENT_SECRET = '';
+exports.USERNAME = '';
+exports.PASSWORD = ''; 
